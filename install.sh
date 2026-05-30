@@ -5,7 +5,7 @@ green='\033[0;32m'
 blue='\033[0;34m'
 yellow='\033[0;33m'
 plain='\033[0m'
-author='yxfvc'
+author='yxfvc8'
 
 cur_dir=$(pwd)
 
@@ -1076,6 +1076,7 @@ install_x-ui() {
         tag_version=$(curl -Ls "https://api.github.com/repos/${author}/3x-ui/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
         if [[ ! -n "$tag_version" ]]; then
             echo -e "${yellow}Trying to fetch version with IPv4...${plain}"
+			echo -e https://api.github.com/repos/${author}/3x-ui/releases/latest
             tag_version=$(curl -4 -Ls "https://api.github.com/repos/${author}/3x-ui/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
             if [[ ! -n "$tag_version" ]]; then
                 echo -e "${red}Failed to fetch x-ui version, it may be due to GitHub API restrictions, please try it later${plain}"
@@ -1209,6 +1210,8 @@ install_x-ui() {
                     ;;
             esac
         fi
+
+		echo https://raw.githubusercontent.com/${author}/3x-ui/main/x-ui.service.debian
 
         # If service file not found in tar.gz, download from GitHub
         if [ "$service_installed" = false ]; then
