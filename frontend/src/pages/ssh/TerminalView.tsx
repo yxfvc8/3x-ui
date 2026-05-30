@@ -3,7 +3,17 @@ import { useEffect, useRef } from 'react';
 import { Terminal } from '@xterm/xterm';
 import { FitAddon } from '@xterm/addon-fit';
 import '@xterm/xterm/css/xterm.css'; // CSS 路径也可能需要调整
-
+ const buildUrl = (rpath: string) =>{
+	const rootBasePath = (typeof window !== 'undefined' && window.X_UI_BASE_PATH) || '';
+	const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+	const currentPort = window.location.port;
+	const host = window.location.hostname;
+	const portPart = host=='localhost'?  ':2053' : (currentPort ? `:${currentPort}` : '');
+    let basePath = rootBasePath || '/';
+    if (!basePath.startsWith('/')) basePath = '/' + basePath;
+    if (!basePath.endsWith('/')) basePath += '/';
+	return `${protocol}//${host}${portPart}${basePath}${rpath}`;
+  }
 
 export const TerminalView = () => {
   const terminalRef = useRef<HTMLDivElement>(null);
@@ -25,7 +35,8 @@ export const TerminalView = () => {
 	formData.append('path',currentPath.current);
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/ssh/upload', true);
+	const uploadUrl  = buildUrl("ssh/upload")
+    xhr.open('POST', uploadUrl, true);
 
     xhr.upload.onprogress = (event) => {
       if (event.lengthComputable) {
@@ -45,6 +56,8 @@ export const TerminalView = () => {
     xhr.send(formData);
   };
 
+ 
+
   useEffect(() => {
     if (!terminalRef.current) return;
 
@@ -55,15 +68,15 @@ export const TerminalView = () => {
     fitAddon.fit();
     term.current = xterm;
 
-	
 
 	const connect = () => {
-		const host = window.location.hostname;
+		/*const host = window.location.hostname;
 		const currentPort = window.location.port;
 		const portPart = host=='localhost'?  ':2053' : (currentPort ? `:${currentPort}` : '');
 		const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
 		const path = 'ssh';
-		const wsUrl = `${protocol}://${host}${portPart}/${path}`;
+		const wsUrl = `${protocol}://${host}${portPart}/${path}`;*/
+		const wsUrl = buildUrl("ssh")
 
 		const ws = new WebSocket(wsUrl);
 		socketRef.current = ws;
@@ -107,8 +120,6 @@ export const TerminalView = () => {
 	};
 
 	connect();
-
-
 
 
 	
