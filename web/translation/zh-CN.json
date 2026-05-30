@@ -91,8 +91,10 @@
     "noExpiry": "无到期"
   },
   "menu": {
+	"ssh": "SSH",
     "theme": "主题",
     "dark": "暗色",
+    "groups": "分组",
     "ultraDark": "超暗色",
     "dashboard": "系统状态",
     "inbounds": "入站列表",

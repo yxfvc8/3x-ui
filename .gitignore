@@ -12,6 +12,8 @@
 tmp/
 *.tar.gz
 
+3x-ui
+
 # Ignore build and distribution directories
 backup/
 bin/

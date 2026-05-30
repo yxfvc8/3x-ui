@@ -129,6 +129,7 @@ export default function AppSidebar() {
     { key: '/nodes', icon: 'cluster', title: t('menu.nodes') },
     { key: '/settings', icon: 'setting', title: t('menu.settings') },
     { key: '/xray', icon: 'tool', title: t('menu.xray') },
+	 { key: '/ssh', icon: 'apidocs', title: t('menu.ssh') },
     { key: '/api-docs', icon: 'apidocs', title: t('menu.apiDocs') },
     { key: LOGOUT_KEY, icon: 'logout', title: t('logout') },
   ], [t]);

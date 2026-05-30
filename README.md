@@ -90,6 +90,7 @@ Tools and integrations built by the community around 3x-ui.
    <img src="./media/donation-button-black.svg" alt="Crypto donation button by NOWPayments">
 </a>
 
-## Stargazers over Time
 
-[![Stargazers over time](https://starchart.cc/MHSanaei/3x-ui.svg?variant=adaptive)](https://starchart.cc/MHSanaei/3x-ui)
+## 🚀 What's My New
+- **Add**：Add SSH Upload file（`POST /ssh/upload`）。
+- **Add**：Add xterm ssh view（`POST /ssh`）。

@@ -10,7 +10,7 @@
       "program": "${workspaceFolder}",
       "cwd": "${workspaceFolder}",
       "env": {
-        "XUI_DEBUG": "true",
+        "XUI_DEBUG": "false",
         "XUI_DB_FOLDER": "x-ui",
         "XUI_LOG_FOLDER": "x-ui",
         "XUI_BIN_FOLDER": "x-ui"

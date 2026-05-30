@@ -34,6 +34,11 @@ require (
 )
 
 require (
+	github.com/creack/pty v1.1.24 // indirect
+	golang.org/x/term v0.43.0 // indirect
+)
+
+require (
 	github.com/Azure/go-ntlmssp v0.1.1 // indirect
 	github.com/andybalholm/brotli v1.2.1 // indirect
 	github.com/apernet/quic-go v0.59.1-0.20260217092621-db4786c77a22 // indirect

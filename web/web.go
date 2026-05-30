@@ -6,6 +6,7 @@ import (
 	"context"
 	"crypto/tls"
 	"embed"
+	"fmt"
 	"io"
 	"io/fs"
 	"net"
@@ -102,6 +103,7 @@ type Server struct {
 	panel *controller.XUIController
 	api   *controller.APIController
 	ws    *controller.WebSocketController
+	ssh   *controller.SSHController
 
 	xrayService      service.XrayService
 	settingService   service.SettingService
@@ -239,6 +241,10 @@ func (s *Server) initRouter() (*gin.Engine, error) {
 	s.ws = controller.NewWebSocketController(service.NewWebSocketService(s.wsHub))
 	// Register WebSocket route with basePath (g already has basePath prefix)
 	g.GET("/ws", s.ws.HandleWebSocket)
+
+	s.ssh = controller.NewSSHController(service.NewSSHService())
+	g.GET("/ssh", s.ssh.HandleSSH)
+	g.POST("/ssh/upload", s.ssh.HandleUpload)
 
 	// Chrome DevTools endpoint for debugging web apps
 	engine.GET("/.well-known/appspecific/com.chrome.devtools.json", func(c *gin.Context) {
@@ -385,6 +391,13 @@ func (s *Server) start(restartXray bool, startTgBot bool) (err error) {
 	engine, err := s.initRouter()
 	if err != nil {
 		return err
+	}
+
+	fmt.Printf("%-10s %-25s %s\n", "METHOD", "PATH", "HANDLER")
+	fmt.Println("------------------------------------------------------------")
+
+	for _, route := range engine.Routes() {
+		fmt.Printf("%-10s %-25s %s\n", route.Method, route.Path, route.Handler)
 	}
 
 	certFile, err := s.settingService.GetCertFile()

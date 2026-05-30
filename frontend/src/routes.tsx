@@ -11,6 +11,7 @@ const NodesPage = lazy(() => import('@/pages/nodes/NodesPage'));
 const SettingsPage = lazy(() => import('@/pages/settings/SettingsPage'));
 const XrayPage = lazy(() => import('@/pages/xray/XrayPage'));
 const ApiDocsPage = lazy(() => import('@/pages/api-docs/ApiDocsPage'));
+const SshPage = lazy(() => import('@/pages/ssh/SshPage'));
 
 function withSuspense(node: React.ReactNode) {
   return <Suspense fallback={null}>{node}</Suspense>;
@@ -29,6 +30,7 @@ const routes: RouteObject[] = [
       { path: 'settings', element: withSuspense(<SettingsPage />) },
       { path: 'xray', element: withSuspense(<XrayPage />) },
       { path: 'api-docs', element: withSuspense(<ApiDocsPage />) },
+	   { path: 'ssh', element: withSuspense(<SshPage />) }, // 添加 SSH 路由
     ],
   },
 ];

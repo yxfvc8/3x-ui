@@ -58,6 +58,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.
    <img src="./media/donation-button-black.svg" alt="Crypto donation button by NOWPayments">
 </a>
 
-## 随时间变化的星标数
-
-[![Stargazers over time](https://starchart.cc/MHSanaei/3x-ui.svg?variant=adaptive)](https://starchart.cc/MHSanaei/3x-ui)
+## 🚀 What's My New
+- **Add**：Add SSH Upload file（`POST /ssh/upload`）。
+- **Add**：Add xterm ssh view（`POST /ssh`）。

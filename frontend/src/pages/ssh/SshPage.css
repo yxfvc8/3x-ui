@@ -1,0 +1,71 @@
+.ssh-page {
+  height: 100vh;
+  display: flex;
+}
+
+.ssh-page .content-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ssh-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-icon {
+  font-size: 30px;
+}
+
+.header-title {
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.ssh-content {
+  flex: 1;
+  display: flex;
+  background: #1e1e1e;
+}
+
+.terminal-container {
+  flex: 1;
+  height: 100%;
+}
+
+.not-connected {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #8b949e;
+}
+
+.not-connected-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.not-connected p {
+  margin-bottom: 24px;
+  font-size: 14px;
+}
