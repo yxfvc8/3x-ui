@@ -3,6 +3,7 @@ module github.com/mhsanaei/3x-ui/v3
 go 1.26.3
 
 require (
+	github.com/creack/pty v1.1.24
 	github.com/gin-contrib/gzip v1.2.6
 	github.com/gin-contrib/sessions v1.1.0
 	github.com/gin-gonic/gin v1.12.0
@@ -24,18 +25,13 @@ require (
 	github.com/xtls/xray-core v1.260327.0
 	go.uber.org/atomic v1.11.0
 	golang.org/x/crypto v0.52.0
-	golang.org/x/sys v0.45.0
+	golang.org/x/sys v0.46.0
 	golang.org/x/text v0.37.0
 	google.golang.org/grpc v1.81.1
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 	gorm.io/driver/postgres v1.6.0
 	gorm.io/driver/sqlite v1.6.0
 	gorm.io/gorm v1.31.1
-)
-
-require (
-	github.com/creack/pty v1.1.24 // indirect
-	golang.org/x/term v0.43.0 // indirect
 )
 
 require (
